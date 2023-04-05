@@ -1,2 +1,6 @@
 /__pycache__
 /venv
+/imgs
+/access
+.cache
+*-track-ids.txt
