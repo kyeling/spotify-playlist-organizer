@@ -6,12 +6,18 @@ from util import *
 #  initial funtion to access spotify account
 raise NotImplementedError('Please fill out authentication credentials.')
 def authenticate():
+    with open('access/client_id.txt', 'r') as f:
+        id = f.read().rstrip()
+    
+    with open('access/client_secret.txt', 'r') as f:
+        secret = f.read().rstrip()
+
     creds = {
-        'client_id': '',
-        'client_secret': '',
+        'client_id': id,
+        'client_secret': secret,
         'redirect_uri': 'https://api.spotify.com/v1',
         'scope': 'user-library-read playlist-modify-public'
-    } 
+    }
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(**creds))
     return sp
 
